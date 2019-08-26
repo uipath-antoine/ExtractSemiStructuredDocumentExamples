@@ -8,7 +8,7 @@
     "UiPath.Excel.Activities": "[2.5.0]",
     "UiPath.Mail.Activities": "[1.3.0]",
     "UiPath.IntelligentOCR.Activities": "[2.0.0]",
-    "UiPathTeam.MLModel.Activities": "[1.1.7171.22102]"
+    "UiPathTeam.MLModel.Activities": "[1.1.7171.26367]"
   },
   "schemaVersion": "3.2",
   "studioVersion": "18.4.2.0",
