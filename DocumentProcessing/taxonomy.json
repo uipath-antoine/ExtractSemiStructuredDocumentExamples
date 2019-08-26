@@ -1,0 +1,311 @@
+{
+  "DataContractVersion": "1.0",
+  "DocumentTypes": [
+    {
+      "DocumentTypeId": "UiPath.MLModel.Invoice",
+      "Group": "UiPath",
+      "Category": "MLModel",
+      "Name": "Invoice",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.MLModel.InvoiceDocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "UiPath.MLModel.Invoice.name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.vendor-addr",
+          "FieldName": "Vendor-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.billing-addr",
+          "FieldName": "Billing-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.shipping-addr",
+          "FieldName": "Shipping-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.invoice-no",
+          "FieldName": "Invoice-no",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.po-no",
+          "FieldName": "Po-no",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.date",
+          "FieldName": "Date",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.total",
+          "FieldName": "Total",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.tax",
+          "FieldName": "Tax",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Invoice.items",
+          "FieldName": "Items",
+          "IsMultiValue": false,
+          "Type": 9,
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "UiPath.MLModel.Invoice.items.Body.description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Invoice.items.Body.unit-price",
+              "FieldName": "Unit-price",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Invoice.items.Body.line-amount",
+              "FieldName": "Line-amount",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Invoice.items.Body.quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Invoice.items.Body.item-po-no",
+              "FieldName": "Item-po-no",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            }
+          ],
+          "SetValues": []
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "UiPath.MLModel.Receipt",
+      "Group": "UiPath",
+      "Category": "MLModel",
+      "Name": "Receipt",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.MLModel.ReceiptDocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "UiPath.MLModel.Receipt.name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.vendor-addr",
+          "FieldName": "Vendor-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.phone",
+          "FieldName": "Phone",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.tax",
+          "FieldName": "Tax",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.date",
+          "FieldName": "Date",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.total",
+          "FieldName": "Total",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.Receipt.items",
+          "FieldName": "Items",
+          "IsMultiValue": false,
+          "Type": 9,
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "UiPath.MLModel.Receipt.items.Body.quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Receipt.items.Body.description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Receipt.items.Body.line-amount",
+              "FieldName": "Line-amount",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.Receipt.items.Body.unit-price",
+              "FieldName": "Unit-price",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            }
+          ],
+          "SetValues": []
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "UiPath.MLModel.Document",
+      "Group": "UiPath",
+      "Category": "MLModel",
+      "Name": "Document",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.MLModel.DocumentDocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    }
+  ],
+  "Groups": [
+    {
+      "Name": "UiPath",
+      "Categories": [
+        "MLModel"
+      ]
+    }
+  ],
+  "SupportedLanguages": [
+    {
+      "Name": "English",
+      "Code": "eng"
+    }
+  ]
+}

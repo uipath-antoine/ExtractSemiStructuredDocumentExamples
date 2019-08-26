@@ -1,0 +1,167 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="TestValidationStation" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="TestValidationStation_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:udcd="clr-namespace:UiPath.DocumentProcessing.Contracts.Dom;assembly=UiPath.DocumentProcessing.Contracts"
+ xmlns:udcr="clr-namespace:UiPath.DocumentProcessing.Contracts.Results;assembly=UiPath.DocumentProcessing.Contracts"
+ xmlns:udct="clr-namespace:UiPath.DocumentProcessing.Contracts.Taxonomy;assembly=UiPath.DocumentProcessing.Contracts"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:uiat="clr-namespace:UiPath.IntelligentOCR.Activities.TaxonomyManagement;assembly=UiPath.IntelligentOCR.Activities"
+ xmlns:uiav="clr-namespace:UiPath.IntelligentOCR.Activities.ValidationStation;assembly=UiPath.IntelligentOCR.Activities"
+ xmlns:uma="clr-namespace:UiPath.MLModel.Activities;assembly=UiPath.MLModel.Activities"
+ xmlns:umd="clr-namespace:UiPath.MLModel.Datamodel;assembly=UiPath.MLModel"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>ConnectivityFramework.HTTP</x:String>
+      <x:String>UiPath.MLModel.Datamodel</x:String>
+      <x:String>ConnectivityFramework.HTTP.Contracts</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>ConnectivityFramework.HTTP</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.MLModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.MLModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This simple workflow will query a machine learning model (located at Endpoint) and pass the result to Validation Station. You can then see what the model found out in Validation Station and click on Save Results once done.&#xA;&#xA;The workflow will also print the model's response as a json string in the logs" DisplayName="TestMLModel" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="udct:DocumentTaxonomy" Name="Taxonomy" />
+      <Variable x:TypeArguments="udcd:Document" Name="Dom" />
+      <Variable x:TypeArguments="udcr:ExtractionResult" Name="ExtractionResult" />
+      <Variable x:TypeArguments="x:String" Name="RawText" />
+      <Variable x:TypeArguments="x:String" Name="FilePath" />
+      <Variable x:TypeArguments="umd:ModelResult" sap2010:Annotation.AnnotationText="Type 'umd:ModelResult' ('clr-namespace:UiPath.MLModel.Datamodel;assembly=UiPath.MLModel') could not be resolved and was automatically replaced with 'UnknownType'" Name="Modelresult" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Endpoint" />
+      <Variable x:TypeArguments="udcr:ExtractionResult" Name="ValidatedExtractionResults" />
+    </Sequence.Variables>
+    <ui:SelectFile DisplayName="Select File" Filter="Image files (*.png,*.bmp,*.tiff,*.pdf)|*.png;*.bmp;*.tiff;*.pdf" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[FilePath]" />
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="ui:GenericValue">[Endpoint]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="ui:GenericValue">["https://invoices.uipath.com"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut sap2010:Annotation.AnnotationText="Uncomment these two activities and comment the two activities above to try out the invoice endpoint" DisplayName="Comment Out" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">Data\receipt_example.jpg</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="ui:GenericValue">[Endpoint]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="ui:GenericValue">["http://35.243.223.3"]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <uma:QueryMLModel APIKey="{x:Null}" DOM="[Dom]" DisplayName="Extract semi-structured document" DocType="UiPath.MLModel.Invoice" Endpoint="[Endpoint]" ExtractionResult="[ExtractionResult]" sap2010:WorkflowViewState.IdRef="QueryMLModel_4" ImagePath="[FilePath]" ModelResult="[Modelresult]" RawText="[RawText]" />
+    <uiat:LoadTaxonomy DisplayName="Load Taxonomy" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_2" Taxonomy="[Taxonomy]" />
+    <uiav:PresentValidationStation AutomaticExtractionResults="[ExtractionResult]" DisplayName="Present Validation Station" DocumentObjectModel="[Dom]" DocumentPath="[FilePath]" DocumentText="[RawText]" sap2010:WorkflowViewState.IdRef="PresentValidationStation_1" Taxonomy="[Taxonomy]" ValidatedExtractionResults="[ValidatedExtractionResults]" />
+    <sads:DebugSymbol.Symbol>d0lDOlxVc2Vyc1xBbnRvaW5lQ2hhdXNzaW5cRG93bmxvYWRzXE1MTW9kZWxUZXN0XFZhbGlkYXRpb25TdGF0aW9uVGVzdC54YW1sGFQDggEOAgEBXwVfwgECASRgBWcOAgEgaAV9FQIBH34FfrsCAgESfwV/fQIBD4ABBYAB2wICAQJfswFfvwECASVlN2VWAgEjYjhiQgIBIX78AX6IAgIBHX6VAn6kAgIBG35sfoQBAgEafq0CfrgCAgEYfi1+NAIBFn6sAX7AAQIBFH6OAX6aAQIBE39uf3oCARCAAboCgAHYAgIBDYABkgKAAZ4CAgELgAHAAYABywECAQmAAaYBgAGyAQIBB4ABP4ABUwIBBYABkQGAAZgBAgED</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="SelectFile_1" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="314,62" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="264,288">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="314,131.333333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="QueryMLModel_4" sap:VirtualizedContainerService.HintSize="314,146.666666666667" />
+      <sap2010:ViewStateData Id="LoadTaxonomy_2" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="PresentValidationStation_1" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,875.333333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TestValidationStation_1" sap:VirtualizedContainerService.HintSize="376,955.333333333333" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
