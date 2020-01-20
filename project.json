@@ -8,7 +8,7 @@
     "UiPath.Mail.Activities": "[1.3.0]",
     "UiPath.System.Activities": "[18.4.2]",
     "UiPath.UIAutomation.Activities": "[18.4.3]",
-    "UiPathTeam.MLModel.Activities": "[1.2.7235.27467]"
+    "UiPathTeam.MLModel.Activities": "[1.4.0]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
